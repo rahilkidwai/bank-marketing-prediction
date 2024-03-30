@@ -62,8 +62,12 @@ Compare the performance of the classifiers (k-nearest neighbors, logistic regres
 All categorical values coded with the "unknown" are missing values. 
 
 ## Data Preprocessing
+- Used the limited version of the dataset, which is randomly selected from the full version and is 10% of the full version.
 - **Duration Attribute:** The value is not known before a call is performed and is not included for prediction modeling.
-
+- The target value (y) is unevenly distributed with 12% yes and 88% no.
+  ![Target Distribution](/images/target_y_dist.png "Target Distribution")
+- The heatmap between numerical values
+  ![Heatmap Numerical Data](/images/heatmap-numerical-features.png "Heatmap Numerical Data")
 ## Techniques / Evaluation
 Following technology stack is leveraged for this project:
 <pre>
