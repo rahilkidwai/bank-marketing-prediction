@@ -126,4 +126,4 @@ Here are the ranges of values for all parameters based on our evaluation:
 
 
 ## References
-<a id="1">[1]</a> https://archive.ics.uci.edu/dataset/222/bank+marketing \
+<a id="1">[1]</a> https://archive.ics.uci.edu/dataset/222/bank+marketing
