@@ -17,6 +17,7 @@
     - [3. Support Vector Machines](#3-support-vector-machines)
     - [4. Decision Tree Classifier](#4-decision-tree-classifier)
   - [Conclusion](#conclusion)
+  - [Future work](#future-work)
   - [References](#references)
 
 ## Problem Statement
@@ -160,6 +161,8 @@ Here are the ranges of values for all parameters based on our evaluation:
 | F-score (weighted) | SVM (kernel = poly) | Count Vectorizer |
 | Fit time (seconds) | AdaBoost (class = ovr) | Count Vectorizer |
 
+## Future work
+The evaluation was done using the limited dataset (10% of full dataset) because of the resource constraints and computing power limitations. To have more accurate evaluation, it is recommended to perform the evaluation on the full dataset and expanded range of hyper-parameters.
 
 ## References
 <a id="1">[1]</a> [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, In press, http://dx.doi.org/10.1016/j.dss.2014.03.001
