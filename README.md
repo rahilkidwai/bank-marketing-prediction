@@ -9,8 +9,9 @@
     - [Data Attributes](#data-attributes)
     - [Missing Values](#missing-values)
   - [Data Preprocessing](#data-preprocessing)
-    - [DataFrame for Model Evaluation](#dataframe-for-model-evaluation)
   - [Techniques / Evaluation](#techniques--evaluation)
+    - [Methodology](#methodology)
+    - [Results](#results)
     - [1. Logistic Regression](#1-logistic-regression)
     - [2. KNeighbor Classifier](#2-kneighbor-classifier)
     - [3. Support Vector Machines](#3-support-vector-machines)
@@ -55,20 +56,12 @@ Compare the performance of the classifiers (k-nearest neighbors, logistic regres
 | cons.conf.idx | numeric | Input | monthly indicator of consumer confidence index | | 
 | euribor3m | numeric | Input | daily indicator of euribor 3 month rate | | 
 | nr.employed | numeric | Input | quarterly indicator of number of employees | | 
-| y | categorical | Output | has the client subscribed a term deposit? | |
+| y | categorical | Output | has the client subscribed a term deposit? | yes, no |
 ### Missing Values
 All categorical values coded with the "unknown" are missing values. 
 
 ## Data Preprocessing
 - **Duration Attribute:** The value is not known before a call is performed and is not included for prediction modeling.
--
-
-### DataFrame for Model Evaluation
-Stats on notes related to diabetes diagnosis:
-|   |   |
-|---|---|
-| Total count | 25,376 |
-
 
 ## Techniques / Evaluation
 Following technology stack is leveraged for this project:
@@ -78,15 +71,18 @@ Python Packages: Pandas, nltk, sklearn, matplotlib, seaborn
 Notebook: [notebook](notebook.ipynb)
 </pre>
 
-This is a Multi Label Classification problem. I explored following Machine Learning techniques / models:
+### Methodology
+This is a Binary Classification problem. Following techniques / models are evaluated:
 - KNeighbor Classifier, 
 - Logistic Regression,
 - State Vector Machines (SVM) 
 - Decision Tree Classifier
 
-To compare different techniques I use the following metrics: Accuracy, and F-score (Macro and Weighted).
+There were no missing values in the given dataset. The attribute "duration" is dropped from the dataset. The data was split in Training and Test sets at a factor of 80/20 respectively. The categorical columns were transformed and numerical columns were scaled to have a standardized distribution. 
 
+Models were evaluated with different hyper-parameters and evaluated for accuracy, precision, recall and f-score.
 
+### Results
 ### 1. Logistic Regression
 
 | Multi Class | Fit Time | Accuracy | F1-Score (macro) | F1-Score (weighted) |
