@@ -39,17 +39,17 @@ Compare the performance of the classifiers (k-nearest neighbors, logistic regres
 | job | categorical | Input | type of job | blue-collar, services, admin., entrepreneur, self-employed, technician, management, student, retired, housemaid, unemployed, unknown |
 | marital | categorical | Input | marital status | married, single, divorced, unknown | 
 | education | categorical | Input | education level | basic.9y, high.school, university.degree, professional.course, basic.6y, basic.4y, unknown, illiterate | 
-| default | categorical |on l Input | has credit in default? | yes, no, unknown | 
+| default | categorical | Input | has credit in default? | yes, no, unknown | 
 | housing | categorical | Input | has housing loan? | yes, no, unknown | 
 | loan | categorical | Input | has personal loan? | yes, no, unknown | 
 | contact | categorical | Input | contact communication type | cellular, telephone | 
 | month | categorical | Input | last contact month of year | may, jun, nov, sep, jul, aug, mar, oct, apr, dec | 
-| day_of_week | numeric | Input | last contact duration, in seconds | fri, wed, mon, thu, tue | 
+| day_of_week | categorical | Input | last contact duration, in seconds | fri, wed, mon, thu, tue | 
 | duration | numeric | Input | duration of last call | |
 | campaign | numeric | Input | number of contacts performed during this campaign | |
 | pdays | numeric | Input | number of days that passed by after the client was last contacted from a previous campaign, 999 if not contacted previously | |
 | previous | numeric | Input | number of contacts performed before this campaign | | 
-| poutcome | numeric | Input | outcome of the previous marketing campaign | nonexistent, failure, success | 
+| poutcome | categorical | Input | outcome of the previous marketing campaign | nonexistent, failure, success | 
 | emp.var.rate | numeric | Input | quarterly indicator of employment variation rate | | 
 | cons.price.idx | numeric | Input | monthly indicator of consumer price index | | 
 | cons.conf.idx | numeric | Input | monthly indicator of consumer confidence index | | 
@@ -82,7 +82,7 @@ This is a Multi Label Classification problem. I explored following Machine Learn
 - KNeighbor Classifier, 
 - Logistic Regression,
 - State Vector Machines (SVM) 
-- Decision Tree Classifier \
+- Decision Tree Classifier
 
 To compare different techniques I use the following metrics: Accuracy, and F-score (Macro and Weighted).
 
