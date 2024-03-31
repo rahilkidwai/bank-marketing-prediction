@@ -21,6 +21,7 @@
 Compare the performance of the classifiers (k-nearest neighbors, logistic regression, decision trees, and support vector machines) for multiple marketing campaigns conducted by a Portuguese banking institution. The goal is to predict if the client will subscribe a bank term deposit. The related information and dataset is available [here](https://archive.ics.uci.edu/dataset/222/bank+marketing) [[1]](#1).
 
 ### Introduction
+The data is related with direct marketing campaigns of a Portuguese banking institution and the goal is to predict if the client will subscribe a term deposit. The marketing campaigns were based on or multiple phone calls with the client to gauge if the client will or will not subscribe ot the product. Data contains 20 different features comprising both numeric and categorical data elements. Here we used four different models and compared them in terms accuracy, precision, recall and f1-score.
 
 ## Dataset
 ### Full Dataset
