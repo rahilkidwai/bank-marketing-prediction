@@ -12,10 +12,7 @@
   - [Techniques / Evaluation](#techniques--evaluation)
     - [Methodology](#methodology)
     - [Results](#results)
-    - [1. Logistic Regression](#1-logistic-regression)
-    - [2. KNeighbor Classifier](#2-kneighbor-classifier)
-    - [3. Support Vector Machines](#3-support-vector-machines)
-    - [4. Decision Tree Classifier](#4-decision-tree-classifier)
+      - [Best Performance](#best-performance)
   - [Conclusion](#conclusion)
   - [Future work](#future-work)
   - [References](#references)
@@ -80,7 +77,7 @@ Notebook: [notebook](notebook.ipynb)
 This is a Binary Classification problem. Following techniques / models are evaluated:
 - KNeighbor Classifier, 
 - Logistic Regression,
-- State Vector Machines (SVM) 
+- Support Vector Machines (SVM) 
 - Decision Tree Classifier
 
 There were no missing values in the given dataset. The attribute "duration" is dropped from the dataset. The data was split in Training and Test sets at a factor of 80/20 respectively. The categorical columns were transformed and numerical columns were scaled to have a standardized distribution. 
@@ -88,46 +85,22 @@ There were no missing values in the given dataset. The attribute "duration" is d
 Models were evaluated with different hyper-parameters and evaluated for accuracy, precision, recall and f-score.
 
 ### Results
-### 1. Logistic Regression
 
-| Multi Class | Fit Time | Accuracy | F1-Score (macro) | F1-Score (weighted) |
-| ----------- | -------- | -------- | ---------------- | ------------------- |
-| One-vs-Rest | 3.92s | 0.8395 |	0.7056 | 0.7965 |
-| Multinomial | 3.08s |	0.8395 | 0.7056 | 0.7965 |
-| One-vs-One | 17.11s | 0.8519 | 0.7395 | 0.8225 |
-| One-vs-Rest | 2.96s | 0.7778 | 0.6357 | 0.7339 |
-| Multinomial | 2.25s | 0.7901 | 0.6573 | 0.7501 |
-| One-vs-One | 12.85s | 0.6790 | 0.5060 | 0.6267 |
+| Model | Fit Time | Accuracy | Precision | Recall | F1-Score | Train Accuracy |
+| ----- | -------- | -------- | --------- | ------ | -------- | -------------- |
+| LogisticRegression | 2.50	| 0.9 | 0.88 | 0.9 | 0.87 | 0.91 | 
+| KNeighborsClassifier | 34.20 | 0.9 | 0.90 | 0.9 | 0.86 | 0.91 |
+| DecisionTreeClassifier | 1.10 | 0.9 | 0.87 | 0.9 | 0.87 | 0.90 |
+| SVC | 11.48 | 0.9 | 0.88 | 0.9 | 0.87 | 0.90 |
 
-**Best Performance**:
-
-### 2. KNeighbor Classifier
-| Vectorizer | Fit Time | Accuracy | F1-Score (macro) | F1-Score (weighted) |
-| --------- | -------- | -------- | ---------------- | ------------------- |
-|  | 0.48s | 0.7778 | 0.6713 | 0.7479 |
-|  | 0.58s | 0.6543 | 0.4809 | 0.6031 |
-
-**Best Performance**: 
-
-### 3. Support Vector Machines
-| Kernel | Fit Time | Accuracy | F1-Score (macro) | F1-Score (weighted) |
-| ------ | ------- | --------- | ---------------- | ------------------- |
-| RBF | 1.15s | 0.1975 | 0.0300 | 0.0652 |
-| Poly | 1.24s | 0.5556 | 0.4647 | 0.5066 |
-| RBF | 1.28s | 0.1975 | 0.0300 | 0.0652 |
-| Poly | 1.39s | 0.7160 | 0.5839 | 0.6786 |
-
-**Best Performance**: 
-
-### 4. Decision Tree Classifier
-| Multi Class | Fit Time | Accuracy | F1-Score (macro) | F1-Score (weighted) |
-| ----------- | -------- | -------- | ---------------- | ------------------- |
-| OVR | 468.94s | 0.8025 | 0.6602 | 0.7642 |
-| Multinomial | 402.24s | 0.7654 | 0.6591 | 0.7392 |
-| OVR | 264.45s | 0.8025 | 0.6602 | 0.7642 |
-| Multinomial | 211.76s | 0.7654 | 0.6560 | 0.7413 |
-
-**Best Performance**:
+#### Best Performance
+- All of the models achieve an accuracy of 90%
+- Best precision of 90% is achieved by KNeighbors Classifier followed by Logistic Regression and SVC
+- All of the models achieve a recall score of 90%
+- Best F1-Score of 87% is achieved by Logistic Regression, Decision Tree and SVC
+- Best fit time was of Decision Classifier followed by Logistic regression
+- Overall any one of Logistics Regression or SVC can be chosen to predict future values as they are more performant compared to KNeighbors classifier which will need complete dataset to make the prediction.
+  ![Logistic Regression](/images/cm_lr.png "Logistic Regression") ![SVC](/images/cm_svc.png "SVC")
 
 ## Conclusion
 To predict the code, we explored four different ML techniques:
@@ -137,33 +110,16 @@ To predict the code, we explored four different ML techniques:
 - Decision Tree Classifier
 
 For comparison we used the following metrics:
-- Accuracy
-- F-score (macro / weighted)
-And looked at average fit time to compare performance.
+- Accuracy, precision, recall, f-score and looked at average fit time to compare performance.
 
 Here are the ranges of values for all parameters based on our evaluation:
 | Parameter | Range |
 | --------- | ----- |
-| Accuracy | 0.1975 - 0.8519 |
-| F-score (macro) | 0.0300 - 0.7395 |
-| F-score (weighted) | 0.5066 - 0.8225 |
-| Fit time (seconds) | 0.48s - 468.94s |
-
-**Overall Best Performance**:
-| Parameter | Best Model | Vectorizer |
-| --------- | ---------- | ------------- |
-| Accuracy | Logistic Regression (class = ovo) | Count Vectorizer |
-| F-score (macro) | Logistic Regression (class = ovo) | Count Vectorizer |
-| F-score (weighted) | Logistic Regression (class = ovo) | Count Vectorizer |
-| Fit time (seconds) | Naive Bayes | Count Vectorizer | 
-
-**Overall Worst Performance**:
-| Parameter | Worst Model | Vectorizer |
-| --------- | ---------- | ------------- |
-| Accuracy | SVM (kernel = rbf) | Count Vectorizer & TF-IDF |
-| F-score (macro) | SVM (kernel = rbf) | Count Vectorizer & TF-IDF |
-| F-score (weighted) | SVM (kernel = poly) | Count Vectorizer |
-| Fit time (seconds) | AdaBoost (class = ovr) | Count Vectorizer |
+| Accuracy | 0.90 |
+| Precision | 0.87 - 0.90 |
+| Recall | 0.90 |
+| F1-Score | 0.86 - 0.87 |
+| Fit time (seconds) | 1.10s - 11.48s |
 
 ## Future work
 The evaluation was done using the limited dataset (10% of full dataset) because of the resource constraints and computing power limitations. To have more accurate evaluation, it is recommended to perform the evaluation on the full dataset and expanded range of hyper-parameters.
